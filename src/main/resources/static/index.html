@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect - Digital Notice Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="logo-area">
+                <h1>Campus Connect</h1>
+                <p class="tagline">The Digital Notice Board brought to your fingertips</p>
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Student Management Card -->
+            <section class="card student-card">
+                <div class="card-header">
+                    <h2>Student Management</h2>
+                </div>
+                <div class="card-body">
+                    <form id="add-student-form" class="modern-form">
+                        <div class="form-group">
+                            <label for="student-name">Full Name</label>
+                            <input type="text" id="student-name" placeholder="e.g. John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-email">Email Address</label>
+                            <input type="email" id="student-email" placeholder="e.g. john@college.edu" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="student-dept">Department</label>
+                                <select id="student-dept" required>
+                                    <option value="">Select Dept</option>
+                                    <option value="CSE">CSE</option>
+                                    <option value="ECE">ECE</option>
+                                    <option value="MECH">MECH</option>
+                                    <option value="CIVIL">CIVIL</option>
+                                    <option value="IT">IT</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="student-sem">Semester</label>
+                                <select id="student-sem" required>
+                                    <option value="">Select Sem</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span class="icon">+</span> Add Student
+                        </button>
+                    </form>
+
+                    <div class="list-container">
+                        <h3>Registered Students</h3>
+                        <ul id="student-list" class="scrollable-list">
+                            <!-- Students loaded here -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Circular Management Card -->
+            <section class="card circular-card">
+                <div class="card-header">
+                    <h2>Send Circular</h2>
+                </div>
+                <div class="card-body">
+                    <form id="send-circular-form" class="modern-form">
+                        <div class="form-group">
+                            <label for="circular-subject">Subject</label>
+                            <input type="text" id="circular-subject" placeholder="e.g. Exam Schedule Released" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="circular-message">Message</label>
+                            <textarea id="circular-message" rows="4" placeholder="Type your circular message here..."
+                                required></textarea>
+                        </div>
+
+                        <!-- File Attachment Input -->
+                        <div class="form-group">
+                            <label for="circular-file">Attachment (Optional)</label>
+                            <input type="file" id="circular-file" accept=".pdf,.doc,.docx,.jpg,.png">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="circular-dept">Target Department</label>
+                                <select id="circular-dept">
+                                    <option value="ALL">All Departments</option>
+                                    <option value="CSE">CSE</option>
+                                    <option value="ECE">ECE</option>
+                                    <option value="MECH">MECH</option>
+                                    <option value="CIVIL">CIVIL</option>
+                                    <option value="IT">IT</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="circular-sem">Target Semester</label>
+                                <select id="circular-sem">
+                                    <option value="ALL">All Semesters</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-accent">
+                            <span class="icon">➤</span> Send Circular
+                        </button>
+                    </form>
+
+                    <div class="list-container">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3>Circular History</h3>
+                            <button id="clear-history-btn" class="delete-btn" style="width: auto;">Clear
+                                History</button>
+                        </div>
+                        <ul id="circular-history" class="scrollable-list">
+                            <!-- History loaded here -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2025 Campus Connect. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
